@@ -1,0 +1,20 @@
+# Security headers (Cloudflare Pages reads this file; keep it in the site's root folder).
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://*.supabase.co; connect-src 'self' https://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; media-src 'self' https://*.supabase.co blob:; object-src 'none'
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+/admin.html
+  X-Robots-Tag: noindex, nofollow
+
+/status.html
+  X-Robots-Tag: noindex, nofollow
+
+/images/*
+  Cache-Control: public, max-age=604800
+/css/*
+  Cache-Control: public, max-age=3600
+/js/*
+  Cache-Control: public, max-age=3600

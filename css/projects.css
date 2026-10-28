@@ -1,0 +1,54 @@
+/* Projects page */
+.gh{font-size:clamp(24px,3vw,34px);margin:0 0 20px}
+.pl .grid{grid-template-columns:1fr;gap:28px;padding-bottom:64px}
+@media(min-width:700px){.pl .grid{grid-template-columns:1fr 1fr}}
+.pl .card,.pl .card:nth-child(1):not([hidden]){grid-column:auto}
+.pl .card:nth-child(1) .im{aspect-ratio:16/10}
+.card .im{position:relative}
+.tag{position:absolute;left:12px;top:12px;max-width:calc(100% - 24px);background:var(--blue);color:#fff;padding:5px 12px;border-radius:999px;font:600 12px/1.2 var(--body)}
+.cl{font-size:14px;color:var(--ink)}
+.cl b{margin-right:6px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.dm{font:600 14px var(--body);color:var(--blue)}
+.badges{position:absolute;right:12px;bottom:12px;display:flex;gap:6px}
+.badges span{background:rgba(20,24,30,.82);color:#fff;padding:4px 10px;border-radius:999px;font:600 12px/1.2 var(--body)}
+.stage{position:relative;background:#0d0f10;aspect-ratio:16/9;max-height:62vh;width:100%;display:grid;place-items:center}
+.stage img,.stage video{width:100%;height:100%;max-height:none;object-fit:contain;background:#0d0f10}
+.stage iframe{width:100%;height:100%;border:0}
+.gnav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;font-size:28px;line-height:1;cursor:pointer;z-index:2}
+.gnav.gp{left:10px}.gnav.gn{right:10px}
+.gnav[hidden],.thumbs[hidden]{display:none}
+.thumbs{display:flex;gap:8px;padding:12px 16px;overflow-x:auto;background:var(--alt)}
+.th{flex:none;width:84px;height:58px;border:2px solid transparent;border-radius:4px;padding:0;overflow:hidden;cursor:pointer;background:#0d0f10}
+.thumbs .th img{width:100%;height:100%;max-height:none;object-fit:cover}
+.th[aria-current="true"]{border-color:var(--blue)}
+.th.vid{display:grid;place-items:center;color:#fff;font-size:20px}
+.card img.ld{opacity:0;transition:opacity .45s ease}
+.card img.ld.in,.thumbs img.ld.in{opacity:1}
+.thumbs img.ld{opacity:0;transition:opacity .45s ease}
+.more{grid-column:1/-1;display:grid;place-items:center;padding:12px 0 8px}
+.sk{display:grid;gap:12px;align-content:start}
+.sk .im{aspect-ratio:16/10;border-radius:6px;background:linear-gradient(90deg,var(--line) 25%,var(--alt) 50%,var(--line) 75%);background-size:200% 100%;animation:sh 1.3s linear infinite}
+.sk i{display:block;height:14px;border-radius:4px;background:var(--line)}
+.sk .w7{width:70%;height:20px}.sk .w4{width:40%}
+@keyframes sh{to{background-position:-200% 0}}
+@media(prefers-reduced-motion:reduce){.sk .im{animation:none}.card img.ld,.thumbs img.ld{transition:none}}
+
+/* search and client filter */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tools{display:grid;gap:10px;grid-template-columns:1fr;margin-bottom:10px}
+@media(min-width:700px){.tools{grid-template-columns:1fr 230px}}
+.tools input,.tools select{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);font:400 16px var(--body)}
+.tools input[type="search"]{padding-left:42px;background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%235a5e66' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E") no-repeat 14px center}
+.tools input:focus,.tools select:focus{outline:3px solid rgba(40,102,165,.3);border-color:var(--blue)}
+.tools label[hidden]{display:none}
+.rcrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 22px;min-height:24px}
+.rcrow p{margin:0;color:var(--muted);font-size:14px}
+.linkbtn{background:none;border:0;padding:0;color:var(--blue);font:600 14px var(--body);text-decoration:underline;cursor:pointer}
+.linkbtn[hidden]{display:none}
+/* project viewer: fixed-height picture area so the title and description never get covered, at any zoom or screen size */
+dialog{max-height:92vh;max-height:92dvh}
+.stage{display:block;position:relative;aspect-ratio:auto;max-height:none;width:100%;height:clamp(200px,56vh,620px);height:clamp(200px,56dvh,620px);overflow:hidden;background:#0d0f10}
+.stage img,.stage video,.stage iframe{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:contain;border:0;background:#0d0f10}
+dialog .cap{padding:22px 24px 30px}
+dialog .cap h3{font-size:clamp(20px,3vw,28px);overflow-wrap:anywhere}
+dialog .cap p{overflow-wrap:anywhere}

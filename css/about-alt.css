@@ -1,0 +1,54 @@
+/* About page, design 2: light hero collage, big year, timeline, tabs */
+.ab2 h1{font-size:clamp(38px,5.6vw,76px);line-height:1}
+.ab2 h1 em{font-style:normal;color:var(--red)}
+.ah{display:grid;gap:44px;padding:56px 24px 72px;align-items:center}
+@media(min-width:960px){.ah{grid-template-columns:1.05fr 1fr;gap:64px}}
+.ah .lede{max-width:50ch;color:var(--muted);font-size:19px;margin:22px 0 30px}
+.ah .acts{display:flex;gap:12px;flex-wrap:wrap}
+.ah-pics{position:relative;display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:12px;aspect-ratio:1/1}
+.ah-pics img{width:100%;height:100%;object-fit:cover;border-radius:6px;min-height:0}
+.ah-pics .p1{grid-row:1/3;box-shadow:12px 12px 0 var(--blue)}
+.ah-pics .p2,.ah-pics .p3{grid-column:2}
+.ah-pics{padding:0 12px 12px 0}
+.badge{position:absolute;left:16px;bottom:28px;background:var(--red);color:#fff;padding:12px 18px;border-radius:4px;font:800 24px/1 var(--head);letter-spacing:-.02em}
+.badge small{display:block;margin-bottom:4px;font:600 11px var(--body);letter-spacing:.12em;text-transform:uppercase}
+.since{background:var(--alt);padding:72px 0}
+.since .wrap{display:grid;gap:24px;align-items:center}
+@media(min-width:900px){.since .wrap{grid-template-columns:auto 1fr;gap:64px}}
+.num{margin:0;font:800 clamp(96px,17vw,220px)/.85 var(--head);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:3px var(--blue)}
+.since h2{margin-bottom:16px}
+.since p{max-width:62ch;color:var(--muted)}
+.since p+p{margin-top:1em}
+.proc2{padding:88px 24px}
+.proc2 .intro{max-width:64ch;color:var(--muted);margin-top:16px}
+.steps{list-style:none;margin:44px 0 0;padding:0;display:grid;gap:28px;position:relative}
+@media(min-width:900px){.steps{grid-template-columns:repeat(4,1fr);gap:24px}.steps::before{content:"";position:absolute;left:0;right:0;top:27px;height:3px;background:var(--line)}}
+.steps li{position:relative;display:grid;gap:8px;align-content:start}
+.steps b{position:relative;z-index:1;display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--red);color:#fff;font:800 20px var(--head)}
+.steps li:nth-child(2) b{background:var(--blue)}.steps li:nth-child(3) b{background:#6b6361}.steps li:nth-child(4) b{background:var(--charcoal)}
+.steps p{color:var(--muted);font-size:15px;max-width:30ch}
+.spec{background:var(--alt);padding:80px 0}
+.spec .wrap{display:grid;gap:36px}
+@media(min-width:900px){.spec .wrap{grid-template-columns:1fr 1.1fr;gap:72px;align-items:start}}
+.spec p{color:var(--muted);margin-top:16px;max-width:52ch}
+.slist{list-style:none;margin:0;padding:0;counter-reset:s}
+.slist li{display:flex;align-items:baseline;gap:18px;padding:20px 0;border-top:1px solid var(--line);font:700 clamp(20px,2.4vw,28px)/1.15 var(--head);letter-spacing:-.01em}
+.slist li:last-child{border-bottom:1px solid var(--line)}
+.slist li::before{counter-increment:s;content:"0" counter(s);font:600 14px var(--body);color:var(--red);letter-spacing:.1em}
+.tabs-sec{padding:88px 24px}
+.tabs-sec>h2{margin-bottom:32px}
+.tabs{display:grid;gap:24px}
+@media(min-width:900px){.tabs{grid-template-columns:300px 1fr;gap:48px;align-items:start}}
+.tl{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+@media(min-width:900px){.tl{flex-direction:column;overflow:visible}}
+.tl button{flex:none;text-align:left;padding:16px 20px;border-radius:6px;border:1.5px solid var(--line);border-left:6px solid var(--blue);background:var(--surface);color:var(--ink);font:700 20px var(--head);cursor:pointer}
+.tl button:nth-child(2){border-left-color:var(--red)}.tl button:nth-child(3){border-left-color:var(--charcoal)}
+.tl button:hover{background:var(--alt)}
+.tl button[aria-selected="true"]{background:var(--blue);border-color:var(--blue);border-left-color:#fff;color:#fff}
+.tl button:nth-child(2)[aria-selected="true"]{background:var(--red);border-color:var(--red)}
+.tl button:nth-child(3)[aria-selected="true"]{background:var(--charcoal);border-color:var(--charcoal)}
+.tp{background:var(--alt);border-radius:6px;padding:clamp(24px,4vw,44px)}
+.tp[hidden]{display:none}
+.tp h3{font-size:clamp(26px,3.4vw,40px);margin-bottom:16px}
+.tp p{max-width:68ch}.tp p+p{margin-top:1em}
+.tp .pills li{background:#fff}

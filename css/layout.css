@@ -1,0 +1,70 @@
+/* Shared header menu and footer */
+.burger{display:none;width:44px;height:44px;border:0;background:transparent;cursor:pointer;position:relative}
+.burger span,.burger span::before,.burger span::after{content:"";position:absolute;height:2px;background:#fff;border-radius:2px;transition:transform .2s,top .2s}
+.burger span{left:10px;right:10px;top:21px}
+.burger span::before{left:0;right:0;top:-7px}.burger span::after{left:0;right:0;top:7px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{top:0;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span::after{top:0;transform:rotate(-45deg)}
+.dd{position:relative;display:flex;align-items:center}
+.dd-t{background:none;border:0;color:#fff;cursor:pointer;padding:8px 6px 8px 0;margin-left:-4px;font-size:12px;border-radius:6px}
+.dd-m{position:absolute;top:100%;left:0;min-width:320px;background:#fff;border-radius:6px;box-shadow:0 12px 32px rgba(20,30,50,.22);padding:8px;display:none;z-index:20}
+.dd:hover .dd-m,.dd:focus-within .dd-m,.dd.open .dd-m{display:block}
+.dd-m a{display:block;color:var(--ink);padding:10px 12px;border-radius:4px;font-size:15px}
+.dd-m a:hover{background:var(--alt)}
+@media(max-width:959px){
+.burger{display:block}
+nav#nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--blue);flex-direction:column;align-items:stretch;gap:2px;padding:8px 20px 20px;box-shadow:0 12px 24px rgba(0,0,0,.2)}
+nav#nav.open{display:flex}
+nav#nav a{padding:12px 8px}
+.dd{display:block}.dd-t{display:none}
+.dd-m{display:block;position:static;background:transparent;box-shadow:none;padding:0 0 0 14px;min-width:0}
+.dd-m a{color:#fff;font-size:14px;padding:8px}.dd-m a:hover{background:rgba(255,255,255,.14)}
+}
+footer.sf{padding:64px 0 24px;font-size:15px}
+.sf .wrap{display:block}
+.sf-grid{display:grid;gap:36px;grid-template-columns:1fr}
+@media(min-width:760px){.sf-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1040px){.sf-grid{grid-template-columns:1.2fr .7fr 1.4fr 1.5fr}}
+.sf .logo{color:#fff;margin-bottom:14px}
+.sf-about{max-width:34ch;color:#c8ccd2}
+.sf h4{margin:0 0 14px;font:600 13px var(--body);letter-spacing:.12em;text-transform:uppercase;color:#fff}
+.sf-grid a:not(.logo):not(.btn),.sf-grid span{display:block;margin-bottom:9px;color:#c8ccd2;text-decoration:none}
+.sf-grid a:not(.logo):not(.btn):hover{color:#fff;text-decoration:underline}
+.sf .btn{margin-top:10px}
+.sf-bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);font-size:14px;color:#a9aeb6}
+.sf-bar a{color:#a9aeb6}
+
+/* Light header: original-colour logo and name sit straight on white, blue stripe keeps the palette */
+header.top{background:#fff;color:var(--ink);border-bottom:5px solid var(--blue)}
+.logo{display:inline-flex;align-items:center;gap:12px;background:none;border-radius:0;padding:0;color:var(--ink)}
+.logo img{box-sizing:content-box;background:none;border-radius:0;padding:0;width:auto;filter:none}
+.logo .mk{height:38px}
+.logo .wm{height:26px}
+nav a{color:var(--ink)}
+nav a[aria-current="page"]{background:var(--blue);color:#fff}
+nav a:not([aria-current]):hover{background:var(--alt)}
+header.top :focus-visible{outline-color:var(--blue)}
+.dd-t{color:var(--ink)}
+.burger span,.burger span::before,.burger span::after{background:var(--ink)}
+.burger[aria-expanded="true"] span{background:transparent}
+@media(max-width:959px){
+nav#nav{background:#fff;border-top:1px solid var(--line);box-shadow:0 12px 24px rgba(0,0,0,.12)}
+.dd-m a{color:var(--ink)}.dd-m a:hover{background:var(--alt)}
+}
+@media(max-width:380px){.logo .mk{height:32px}.logo .wm{height:20px}}
+/* Footer is charcoal, so the logo there is shown in white */
+.sf .logo img{filter:brightness(0) invert(1)}
+
+/* Dropdown arrow: drawn with CSS so it lines up with the menu text, and joins the pill on the current page */
+.dd-t{align-self:stretch;width:26px;padding:0;margin:0 2px 0 -8px;position:relative;font-size:0;color:var(--ink);background:none;border:0;border-radius:0 999px 999px 0;cursor:pointer}
+.dd-t::before{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translate(-50%,-70%) rotate(45deg);transition:transform .2s}
+.dd:hover .dd-t::before,.dd:focus-within .dd-t::before,.dd.open .dd-t::before{transform:translate(-50%,-30%) rotate(225deg)}
+@media(min-width:960px){
+.dd{border-radius:999px}
+.dd:hover{background:var(--alt)}
+.dd.cur,.dd.cur:hover{background:var(--blue)}
+.dd.cur a[aria-current="page"]{background:transparent;color:#fff}
+.dd.cur .dd-t{color:#fff}
+}
+@media(prefers-reduced-motion:reduce){.dd-t::before{transition:none}}

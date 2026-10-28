@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Request a quotation – IDisplay Inc. </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="images/logo-64.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/page.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/mobile.css">
+</head>
+<body data-page="contact">
+<script src="js/config.js"></script>
+<script src="js/layout.js"></script>
+<main>
+<section class="phero"><div class="wrap">
+<p class="eyebrow"><i></i><i></i><i></i><span>Contact</span></p>
+<h1>Request a quotation</h1>
+<p class="lede">Tell us about your project and send it to our team by email. Your email app or Gmail opens with everything already filled in.</p>
+</div></section>
+
+<section class="wrap cf-wrap">
+<div class="cf">
+<h2>Project inquiry</h2>
+<p class="sub">No account needed. Nothing is sent from this page: you review the email and press send yourself.</p>
+<ol class="how"><li>Fill in your project details</li><li>Choose Email app or Gmail</li><li>Review the draft and press send</li></ol>
+
+<div class="quick" role="group" aria-label="Quick contact">
+<strong>Just want to email us?</strong>
+<a class="btn sm" id="q-app" href="#">Email directly</a>
+<a class="btn sm ghost" id="q-gm" href="#" target="_blank" rel="noopener">Open in Gmail ↗</a>
+<button class="btn sm ghost" id="q-copy" type="button">Copy email</button>
+</div>
+
+<form id="cform" novalidate autocomplete="on">
+<div class="fields">
+<label class="fld">Your name / contact person<input id="nm" autocomplete="name" placeholder="e.g. Maria Santos"></label>
+<label class="fld">Your email (for reply)<input id="em" type="email" autocomplete="email" placeholder="e.g. maria@company.com.ph"></label>
+<label class="fld">Company / organization<input id="co" autocomplete="organization" placeholder="e.g. San Miguel Corp."></label>
+<label class="fld">Phone / mobile <small>(optional)</small><input id="ph" type="tel" autocomplete="tel" placeholder="e.g. 0917 123 4567"></label>
+<label class="fld">Service required <small>(required)</small><select id="sv"></select></label>
+<label class="fld">Target venue / city<input id="vn" placeholder="e.g. SMX Convention, Pasay"></label>
+<label class="fld">Target date / timeline<input id="dt" placeholder="e.g. Q4 2026 or next month"></label>
+<div class="fld">
+<label for="bd">Budget guidance <small>(optional)</small></label>
+<input id="bd" placeholder="e.g. PHP 500,000 - 1,000,000">
+<div class="picks" id="picks" aria-label="Quick budget picks"></div>
+</div>
+<label class="fld full">Project brief &amp; specifications<textarea id="br" maxlength="1500" placeholder="Describe booth dimensions (e.g. 6x6m), requirements, lighting, hanging banners, private meeting room, or paste links to reference images."></textarea><small id="cnt">0 / 1500</small></label>
+</div>
+
+<div class="send acts">
+<a class="btn red" id="b-app" href="#">Send via email app</a>
+<a class="btn" id="b-gm" href="#" target="_blank" rel="noopener">Send via Gmail web ↗</a>
+<button class="btn ghost" id="b-copy" type="button">Copy draft</button>
+</div>
+<p id="cstat" role="status"></p>
+<p class="note" id="lnote" hidden>This draft is long. If your email app cuts it off, use Gmail web or Copy draft instead.</p>
+
+<details class="pvwrap" id="pvd">
+<summary>Preview live draft</summary>
+<pre class="pv" id="pv"></pre>
+</details>
+</form>
+</div>
+
+<aside class="side-card" aria-label="Other ways to reach us">
+<h3>Prefer to talk?</h3>
+<dl class="ci">
+<div><dt>Telephone</dt><dd><a id="ci-tel" href="#"></a></dd></div>
+<div><dt>Email</dt><dd><a id="ci-mail" href="#"></a></dd></div>
+<div><dt>Address</dt><dd id="ci-addr"></dd></div>
+<div><dt>Facebook</dt><dd><a id="ci-fb" href="#" target="_blank" rel="noopener">IDisplay Inc.</a></dd></div>
+</dl>
+</aside>
+</section>
+</main>
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/store.js"></script>
+<script src="js/services-store.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

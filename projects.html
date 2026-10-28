@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Projects – IDisplay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="images/logo-64.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/page.css">
+<link rel="stylesheet" href="css/sidebar.css">
+<link rel="stylesheet" href="css/projects.css">
+<link rel="stylesheet" href="css/mobile.css">
+</head>
+<body data-page="projects">
+<script src="js/config.js"></script>
+<script src="js/layout.js"></script>
+<main>
+<section class="phero"><div class="wrap">
+<p class="eyebrow"><i></i><i></i><i></i><span>Our work</span></p>
+<h1>Projects</h1>
+<p class="lede">Browse our work by service. Pick a service to see its projects and the clients we delivered them for.</p>
+</div></section>
+
+<section class="wrap pl">
+<aside class="side" aria-label="Browse by service">
+<h2>Browse by service</h2>
+<label class="sel">Choose a service<select id="svcsel"></select></label>
+<div class="svclist" id="filters" role="group" aria-label="Filter projects by service"></div>
+</aside>
+<div class="main">
+<h2 class="gh" id="gh">All projects</h2>
+<div class="tools" role="search">
+<label class="srch"><span class="vh">Search projects</span><input id="q" type="search" placeholder="Search by project, client, place or keyword" autocomplete="off"></label>
+<label class="csel"><span class="vh">Filter by client</span><select id="clsel"></select></label>
+</div>
+<div class="rcrow"><p id="rc" role="status" aria-live="polite"></p><button class="linkbtn" id="clr" type="button" hidden>Clear filters</button></div>
+<div class="grid" id="grid" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="v2cta"><div class="wrap">
+<h2>Want your project here?</h2>
+<p>Tell us the date, the venue and the budget range. We will get back to you as soon as we can.</p>
+<a class="btn" href="contact.html">Start a project</a>
+</div></section>
+</main>
+
+<dialog id="dlg" aria-label="Project detail"><button class="x" id="dx" aria-label="Close">×</button>
+<div class="stage" id="stage"><button class="gnav gp" id="gp" type="button" aria-label="Previous">‹</button><button class="gnav gn" id="gn" type="button" aria-label="Next">›</button></div>
+<div class="thumbs" id="thumbs" hidden></div>
+<div class="cap"><p class="dm" id="dm"></p><h3 id="dt"></h3><p id="dd"></p></div></dialog>
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/store.js"></script>
+<script src="js/services-store.js"></script>
+<script src="js/media.js"></script>
+<script src="js/projects.js"></script>
+</body>
+</html>

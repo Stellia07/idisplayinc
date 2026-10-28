@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manage projects – IDisplay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="images/logo-64.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/admin.css">
+
+<link rel="stylesheet" href="css/mobile.css">
+</head>
+<body data-page="admin">
+<script src="js/config.js"></script>
+<script src="js/layout.js"></script>
+<main class="wrap">
+<section class="phead"><h1>Manage projects</h1><p>Add, edit and delete the projects shown on the Projects page.</p></section>
+<section class="panel login" id="off" hidden aria-labelledby="ot">
+<h2 id="ot">Admin is turned off</h2>
+<p>This site is not connected to its database yet, so editing is disabled for everyone. Connect Supabase in <code>js/config.js</code> to turn on the sign-in.</p>
+</section>
+<section class="panel login" id="login" hidden aria-labelledby="lt">
+<h2 id="lt">Sign in</h2>
+<form id="lf"><label>Email<input id="email" type="email" autocomplete="username"></label>
+<label>Password<input id="pw" type="password" autocomplete="current-password"></label>
+<button class="btn" type="submit">Sign in</button><p id="lmsg" role="status"></p></form>
+</section>
+<div id="app" hidden>
+<div class="modebar"><span id="mode"></span><button class="btn sm ghost" id="out" type="button" hidden>Sign out</button></div>
+<div class="atabs" role="tablist" aria-label="Manage">
+<button role="tab" id="at-p" aria-selected="true" aria-controls="ap-p" type="button">Projects</button>
+<button role="tab" id="at-s" aria-selected="false" aria-controls="ap-s" type="button">Services</button>
+<button role="tab" id="at-h" aria-selected="false" aria-controls="ap-h" type="button">Home page</button>
+</div>
+<div id="ap-p" role="tabpanel" aria-labelledby="at-p">
+<div class="cols">
+<section class="panel" aria-labelledby="ftitle">
+<h2 id="ftitle">Add project</h2>
+<form id="f" novalidate>
+<label>Title<input id="title" maxlength="80" autocomplete="off"></label>
+<label>Service<select id="cat"></select></label>
+<label>Client name <small>(optional)</small><input id="client" list="clist" maxlength="80" autocomplete="off"></label><datalist id="clist"></datalist>
+<fieldset><legend>Client logo <small>(optional, shown in the home page carousel)</small></legend>
+<label>Upload a logo<input id="clfile" type="file" accept="image/png,image/jpeg,image/webp"></label>
+<label>…or image path / URL<input id="clpath" placeholder="images/client-logo.png" autocomplete="off"></label>
+<img id="clprev" alt="Client logo preview" hidden>
+<p class="hint" id="clnote"></p>
+</fieldset>
+<label>Location<input id="place" maxlength="60" autocomplete="off"></label>
+<label>Description<textarea id="desc" rows="4" maxlength="400"></textarea></label>
+<fieldset><legend>Image</legend>
+<label>Upload a photo<input id="file" type="file" accept="image/*"></label>
+<label>…or image path / URL<input id="path" placeholder="images/image1.jpg" autocomplete="off"></label>
+<img id="prev" alt="Image preview" hidden>
+</fieldset>
+<fieldset><legend>More photos <small>(optional gallery)</small></legend>
+<div id="gal"></div>
+</fieldset>
+<fieldset><legend>Video <small>(optional)</small></legend>
+<label>YouTube or Vimeo link<input id="vlink" placeholder="https://www.youtube.com/watch?v=..." autocomplete="off"></label>
+<label>…or upload a video file <small>(MP4 or WebM, up to 50 MB)</small><input id="vfile" type="file" accept="video/mp4,video/webm"></label>
+<p class="hint" id="vnote"></p><p class="hint" id="vinfo"></p>
+</fieldset>
+<div class="acts"><button class="btn" id="save" type="submit">Add project</button><button class="btn ghost" id="cancel" type="button" hidden>Cancel</button></div>
+<p id="msg" role="status"></p>
+</form></section>
+<section class="panel"><div class="lh"><h2>Projects <span id="count"></span></h2><button class="btn sm ghost" id="reset" type="button">Reset to defaults</button></div><div id="rows"></div></section>
+</div></div>
+<div id="ap-s" role="tabpanel" aria-labelledby="at-s" hidden>
+<div class="cols">
+<section class="panel" aria-labelledby="sftitle">
+<h2 id="sftitle">Add service</h2>
+<form id="sf" novalidate>
+<label>Title<input id="stitle" maxlength="80" autocomplete="off"></label>
+<label>Short summary <small>(one line, shown at the top)</small><input id="ssummary" maxlength="160" autocomplete="off"></label>
+<label>Description <small>(a blank line starts a new paragraph)</small><textarea id="sdesc" rows="6" maxlength="1500"></textarea></label>
+<label>Key points <small>(one per line)</small><textarea id="spoints" rows="5" maxlength="800"></textarea></label>
+<fieldset><legend>Image <small>(optional)</small></legend>
+<label>Upload a photo<input id="sfile" type="file" accept="image/*"></label>
+<label>…or image path / URL<input id="spath" placeholder="images/image1.jpg" autocomplete="off"></label>
+<img id="sprev" alt="Image preview" hidden>
+</fieldset>
+<div class="acts"><button class="btn" id="ssave" type="submit">Add service</button><button class="btn ghost" id="scancel" type="button" hidden>Cancel</button></div>
+<p id="smsg" role="status"></p>
+</form></section>
+<section class="panel"><div class="lh"><h2>Services <span id="scount"></span></h2><button class="btn sm ghost" id="sreset" type="button">Reset to defaults</button></div><div id="srows"></div></section>
+</div>
+</div>
+<div id="ap-h" role="tabpanel" aria-labelledby="at-h" hidden>
+<section class="panel narrow">
+<h2>Home page background</h2>
+<p class="hint">These photos appear behind the headline at the top of the home page. Add one for a still background, or several for a slideshow. Wide, bright, high-quality photos work best. Changes save automatically.</p>
+<p class="hint" id="hnote"></p>
+<div id="hero-list"></div>
+<div class="acts"><button class="btn sm ghost" id="hero-reset" type="button">Use the default photo</button></div>
+<p id="hmsg" role="status"></p>
+</section>
+</div>
+</div>
+</main>
+
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/store.js"></script>
+<script src="js/services-store.js"></script>
+<script src="js/settings-store.js"></script>
+<script src="js/image-tools.js"></script>
+<script src="js/media.js"></script>
+<script src="js/admin-help.js"></script>
+<script src="js/admin-media.js"></script>
+<script src="js/admin-services.js"></script>
+<script src="js/admin-home.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

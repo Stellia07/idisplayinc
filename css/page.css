@@ -1,0 +1,34 @@
+/* Inner-page template */
+.phero{background:var(--charcoal);color:#fff;clip-path:polygon(0 0,100% 0,100% 88%,0 100%);padding:64px 0 120px}
+.phero h1{font-size:clamp(40px,7vw,88px);line-height:.98}
+.phero .lede{max-width:56ch;font-size:19px;margin-top:20px;color:rgba(255,255,255,.85)}
+.block{padding:64px 0}
+.alt{background:var(--alt)}
+.two{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.two{grid-template-columns:1fr 1fr;gap:64px}}
+.two img{border-radius:6px;width:100%;aspect-ratio:4/3;object-fit:cover}
+.prose{max-width:64ch}.prose h2{margin-bottom:18px}.prose p+p{margin-top:1em}.prose p{color:var(--muted)}
+.grid3{display:grid;gap:16px;grid-template-columns:1fr;margin-top:28px}
+@media(min-width:800px){.grid3{grid-template-columns:repeat(3,1fr)}}
+.tile{background:var(--surface);border-top:6px solid var(--red);padding:24px;box-shadow:0 8px 24px rgba(20,30,50,.08);display:grid;gap:8px;align-content:start}
+.tile:nth-child(2){border-color:var(--blue)}.tile:nth-child(3){border-color:var(--gray)}
+.tile p{color:var(--muted)}
+/* About page */
+.stats{display:grid;gap:16px;grid-template-columns:1fr 1fr;margin-top:-64px;position:relative;z-index:3}
+@media(min-width:900px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--surface);border-top:6px solid var(--red);padding:22px;box-shadow:0 10px 30px rgba(20,30,50,.12)}
+.stat:nth-child(2),.stat:nth-child(4){border-color:var(--blue)}.stat:nth-child(3){border-color:var(--gray)}
+.stat b{display:block;margin-bottom:6px;font:800 clamp(24px,3.2vw,36px)/1 var(--head);letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:15px;line-height:1.4;display:block}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;padding:0;list-style:none}
+.pills li{padding:7px 14px;border-radius:999px;background:var(--alt);border:1px solid var(--line);font-weight:500;font-size:14px}
+.alt .pills li{background:#fff}
+.statement{background:var(--blue);color:#fff;padding:88px 0}
+.statement .big{max-width:26ch;font:700 clamp(28px,4.6vw,56px)/1.06 var(--head);letter-spacing:-.025em}
+.statement p:not(.big){max-width:60ch;margin-top:24px;font-size:19px;color:rgba(255,255,255,.9)}
+.mvv .row{display:grid;gap:16px;padding:44px 0;border-top:1px solid var(--line)}
+.mvv .row:first-child{border-top:0}
+@media(min-width:900px){.mvv .row{grid-template-columns:1fr 2fr;gap:56px}}
+.mvv h2{font-size:clamp(34px,5vw,60px)}
+.mvv .m h2{color:var(--blue)}.mvv .v h2{color:var(--red)}
+.mvv .prose{max-width:68ch}.mvv .prose p{color:var(--ink)}
